@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="../style.css" />
+		<title>System Setup: Default Settings (for Email Marketing)</title>
+	</head>
+<body>
+<h1>System Setup: Default Settings (for Email Marketing)</h1>
+
+<blockquote>
+<h6>In this article</h6>
+
+<ul>
+	<li><a href="#locate-the-email-default-settings-record" title="Locate the Email Default Settings record">Locate the Email Default Settings record</a></li>
+	<li><a href="#understanding-the-email-default-settings-record" title="Understanding the Email Default Settings record">Understanding the Email Default Settings record</a></li>
+	<li><a href="#quickstart-steps" title="Quickstart Steps">Quickstart steps</a></li>
+</ul>
+</blockquote>
+
+<p>Right out of the box, a number of settings will need to be set or updated in order to start getting the most out of Dynamics Marketing. This guide will walk you through the Default Settings for email marketing in the Marketing app and how to adjust them for your dealership.</p>
+
+<h2 id="locate-the-email-default-settings-record">Locate the Default Settings record</h2>
+
+<ol>
+	<li>Navigate to the Settings area of the Marketing app.</li>
+	<li>Click on &quot;Default settings&quot; under the &quot;Email Marketing&quot; heading. A records list will be displayed. 
+
+		<ul>
+			<li>If the Marketing app has <strong>not</strong> been configured before, this list will be empty. If this is the case, clicking the &quot;New&quot; button will create a new default settings record for the app.</li>
+			<li>If the list is <strong>not empty</strong>, it will likely only contain one record. If so, open it. If there are multiple records, open them one at a time until you find the record where the &quot;Default&quot; value equals &quot;Yes&quot;.
+
+				<figure><img alt="Default Record" src="../Images/01_02_01_DefaultRecord.png"/></figure></li>
+		</ul></li>
+</ol>
+
+<h2 id="understanding-the-email-default-settings-record">Understanding the Default Settings record</h2>
+
+<p>The following section will guide you through the types of settings contained in the Default Settings record<sup><a id="ffn1" href="#fn1" class="footnote">1</a></sup>.</p>
+
+<p>For a quick guide on which settings need to be setup to make use of the app&#39;s email marketing capabilities, jump down to the section <a href="#steps-to-get-started" title="Steps to get started">Steps to get started</a>.</p>
+
+<h3>Default Content Settings</h3>
+
+<p>The default content settings record<sup><a id="ffn2" href="#fn2" class="footnote">2</a></sup> is where your marketing emails will look to automatically populate some key information about your business.</p>
+
+<p>To edit the default content settings, click on the &quot;Marketing email&quot; tab, and then click &quot;Default Content Settings&quot; to open it.</p>
+
+<p>To make changes to this record, you may need to click the &quot;Stop&quot; button in the command bar (i.e., the bar of buttons above the form).</p>
+
+<p>Here are the default content settings that you can change here:</p>
+
+<ul>
+	<li><strong>Address main</strong>: This is the physical address of your business, which is is something most marketing email whitelists and spam filters will look for to help them verify the legitimacy of the email and its sender. This value is required.</li>
+	<li><strong>Address line 2</strong>: A second address line that can be included in emails along with the main address. This could be used for things like mailing addresses if different than the main address.</li>
+	<li><strong>Social Media URLs</strong>: These are links to your company&#39;s social media pages. If you populate these values here, they can automatically be added to your marketing emails (as hyperlinks or as buttons).</li>
+	<li><strong>Subscription center</strong>: This should already contain a default value, which might appear in the following format: <code>{{msdyncrm_marketingpage(uniqueid)}}</code>. This is an example of a dynamic tag, which are used throughout the Marketing app which enables the system to grab values from elsewhere in the system, rather than require you to set a permanent value.</li>
+</ul>
+
+<blockquote>
+<blockquote>
+<h6>Note</h6>
+
+<p>The subscription center is covered in more detail in <a href="/01_03_OptIns.html" title="System Setup: Opting In Contacts to Marketing Communications">System Setup: Opting In Contacts to Marketing Communications</a>.</p>
+</blockquote>
+</blockquote>
+
+<p>If you stopped the record so that you could make changes, save the record and then click the &quot;Go live&quot; button in the command bar when finished. The system will validate the record before taking it live again, and will alert you in the record&#39;s notification area if any problems are detected.</p>
+
+<h3>Default Sending Domain</h3>
+
+<p>The default sending domain (located on the &quot;Marketing email&quot; tab) is a lookup to an authenticated domain record.</p>
+
+<blockquote>
+<blockquote>
+<h6>Note</h6>
+
+<p>The topic of authenticated domains and how to set them up is covered in more detail in <a href="/01_01_AuthenticatedDomain.html" title="System Setup: Authenticate Your Domain">System Setup: Authenticate Your Domain</a>.</p>
+</blockquote>
+</blockquote>
+
+<p>The system provides you with a Domain record that is already authenticated. However, this default domain is tied directly to the Dynamics Marketing services and is not suitable for production use. If you have already created a Domain of your own and have verified its ownership, edit the &quot;Default sending domain&quot; value by clicking the search button (that appears when you hover your mouse over the field) and then choosing the Domain record you created.</p>
+
+<h3>Default From Email and Default From Name</h3>
+
+<p>These two fields are used to configure how the &quot;From&quot; information should look to email recipients when they receive marketing emails. The default sender is a hosted account that is baked into the Marketing app&#39;s services, and will not reflect your company information or brand in any way. The &quot;Default From Email&quot; and &quot;Default From Name&quot; values masks this information.</p>
+
+<p>Optimally, your &quot;Default From Email&quot; value should have a domain name that matches one of your <a href="/01_01_AuthenticatedDomain.html" title="Authenticate Your Domain">authenticated domains</a>.</p>
+
+<p>For example, if you setup an authenticated domain for the URL <code>https://www.bestdealerever.com</code> then your &quot;Default From Email&quot; might be set to <code>marketing@bestdealerever.com</code>.</p>
+
+<h3>Default Time Zone</h3>
+
+<p>The option to set your time zone is located on the &quot;Customer Journey&quot; tab. Clicking into the &quot;Default time zone&quot; field will allow you to select an option from a list global time zones.</p>
+
+<p>This is setting is used specifically by customer journeys (i.e., marketing automation) for timing when emails should be sent out or on automated timers for triggering steps.</p>
+
+<h3>Global Level Double Opt-In</h3>
+
+<p>Click on the &quot;Global level double opt-in&quot; tab to view the following global double opt-in settings:</p>
+
+<ul>
+	<li><strong>Enable double opt-in</strong>: Enables or disabled double opt-ins for email marketing globally. This toggle is set by default to &quot;No&quot;. </li>
+	<li><strong>Subscriptions</strong>: A lookup field that points to a marketing email record. When this value is set, and when the global &quot;Enable double opt-in&quot; value is &quot;yes&quot;, the specified email will be sent automatically when contacts subscribe to newsletters, etc.</li>
+	<li><strong>Consent</strong>: Similar to the &quot;Subscriptions&quot; lookup, this points to a marketing email record used for confirming changes in a contact&#39;s level of consent<sup><a id="ffn3" href="#fn3" class="footnote">3</a></sup>.</li>
+	<li><strong>Use marketing pages for thank you</strong>: Indicates whether you want contacts redirected to custom &quot;Thank You&quot; pages after a confirmation step. This toggle is set by default to &quot;Yes&quot;.</li>
+	<li><strong>Thank-you page for subscriptions</strong>: A lookup field to the specific marketing page record that you would like to use as a landing page to thank contacts for confirming their subscriptions. This value is blank by default.</li>
+	<li><strong>Thank-you page for consent</strong>: A lookup field to the specific marketing page record that you would like to use as a landing page to thank contacts for confirming their consent-level changes. This value is blank by default.</li>
+</ul>
+
+<h3>Bypass Email Deduplication</h3>
+
+<p>Click on the &quot;Bypass email deduplication&quot; tab to view this setting. This value is set by default to &quot;No&quot;.</p>
+
+<p>When this value is set to &quot;No&quot;, the Marketing app will do its best to try and prevent contacts from receiving the same marketing email messages twice. For example, if a contact has 2 different email addresses in Dynamics, and both email addresses were somehow pulled into an email campaign, the system would likely catch this and only send the marketing email once to the contact.</p>
+
+<p>This involves a bit of business intelligence that looks at many other vectors besides just the recipient&#39;s email address. As such, it might not catch duplicates 100% of the time, but it is still extremely effective.</p>
+
+<p>Preventing duplicates is generally the preferred behavior, but if you are having experience an issue where multiple contacts are reporting that they are not receiving an automated marketing email, you can toggle this value to &quot;Yes&quot; to bypass email deduplication and see if this corrects the issue.</p>
+
+<h2 id="quickstart-steps">Quickstart Steps</h2>
+
+<p><strong>Important!</strong> These other steps should be completed before making changes to your Default Settings record:</p>
+
+<ul>
+	<li><a href="/01_01_AuthenticatedDomain.html" title="System Setup: Authenticate Your Domain">Authenticate at least one custom domain</a></li>
+	<li><a href="/01_03_OptIns.html" title="System Setup: Opting In Contacts to Marketing Communications">Configure global or form-based opt-in settings</a></li>
+</ul>
+
+<h3>1. Confirm a Content Settings record exists</h3>
+
+<p>Ordinarily, this step will not be required and you can go directly on to <strong>step 3</strong>. This is because the Marketing app usually comes with a single Content Settings record already created (which should be preconfigured with your app&#39;s default Subscription Center).</p>
+
+<p>However, there are certain scenarios which may cause the Marketing app to skip creating the Content Settings record, so you may want to follow the steps below to confirm that the record exists.</p>
+
+<ol>
+	<li>Click into the search bar at the top of the app; then click &quot;Search for rows in a table using advanced filters&quot;. A panel should open titled &quot;Select a table to search&quot;.</li>
+	<li>In the panel&#39;s search field, type &quot;Content&quot; (without quotes).</li>
+	<li>The tables should be filtered to only show a few options. Select &quot;Content settings&quot; from the options displayed and click the &quot;Continue&quot; button at the bottom of the panel.</li>
+	<li>A view will load into the main part of the window, and a new panel will automatically be opened titled &quot;Edit filters: Content settings&quot;. Click &quot;Cancel&quot; to dismiss this new panel and to view the view of Content Settings records.</li>
+</ol>
+
+<p>If a Content Settings record already exists in your system, you will see it in the view you just opened. If it exists, you can go on to step 2. Otherwise, to create a new record:</p>
+
+<ol start="6">
+	<li>Click the &quot;New&quot; button. A blank Content Settings record will be displayed.</li>
+	<li>The new record cannot be saved unless the required fields (&quot;Name&quot;, &quot;Address main&quot;, and &quot;Subscription center&quot;) have been filled in.</li>
+	<li>When finished, save and close the record.</li>
+</ol>
+
+<blockquote>
+<blockquote>
+<h6>Note</h6>
+
+<p>See <strong>step 2</strong> for details on configuring Content Settings field values. Then go on to <strong>step 3</strong>.</p>
+</blockquote>
+</blockquote>
+
+<h3>2. Update the Default Content Settings record</h3>
+
+<p>Most of the fields in a Content Settings record have a special button that give you the option specify either <strong>dynamic</strong> or <strong>static</strong> values.</p>
+
+<h3>3. Locate or create a new Default Settings record</h3>
+
+<ol>
+	<li>Navigate to the Settings area of the Marketing app.</li>
+	<li>Click on &quot;Default Settings&quot; in the left-hand navigation (located under the &quot;Email marketing&quot; header).</li>
+	<li>If the records list is empty, click &quot;New&quot; to create a new record. When the form is displayed, give your new Default Settings record a name. (Choose any name you like, as it won&#39;t affect the Marketing app&#39;s functionality.)</li>
+	<li>If the record&#39;s list is <strong>not</strong> empty, open records until you find the one where the &quot;Default&quot; value is &quot;Yes&quot;.</li>
+</ol>
+
+<blockquote>
+<blockquote>
+<h6>Note</h6>
+
+<p>You can also fill in the social media URLs if you like, but the above items are required to get your marketing app up and running.</p>
+</blockquote>
+</blockquote>
+
+<h3>3. Update the Default Sending Domain</h3>
+
+<ol>
+	<li>Complete the steps required to <a href="/01_01_AuthenticatedDomain.html" title="Authenticate Your Domain">authenticate your domain</a>.</li>
+	<li>Update the &quot;Default sending domain&quot; value so that it points to your authenticated domain.</li>
+</ol>
+
+<h3>4. Update the Default Time Zone</h3>
+
+<ol>
+	<li>Navigate to the &quot;Customer Journey&quot; tab.</li>
+	<li>Click into the &quot;Default time zone&quot; field and select your time zone from the list.</li>
+</ol>
+
+<h3>5. Configure Double Opt-In</h3>
+
+<ol>
+	<li>Navigate to the &quot;Global level double opt-in&quot; tab.</li>
+	<li>If your dealership is located in the US, or your local laws do not required you to enabled double opt-in by default, set the &quot;Enable double opt-in&quot; toggle to &quot;No&quot;.</li>
+</ol>
+
+<blockquote>
+<blockquote>
+<h6>Note</h6>
+
+<p>You may want to eventually enable double opt-in, but it is not required to get your marketing app up and running.</p>
+</blockquote>
+</blockquote>
+
+<ol id="footnotes">
+	<li id="fn1"><a href="https://learn.microsoft.com/en-us/dynamics365/marketing/mkt-settings-default-marketing" title="Configure default settings">Microsoft Docs: Configure default settings</a> <a href="#ffn1">&#x21A9;&#xFE0E;</a></li>
+	<li id="fn2"><a href="https://learn.microsoft.com/en-us/dynamics365/marketing/dynamic-email-content" title="Add dynamic content to email messagesd">Microsoft Docs: Add dynamic content to email messages</a> <a href="#ffn2">&#x21A9;&#xFE0E;</a></li>
+	<li id="fn3"><a href="https://learn.microsoft.com/en-us/dynamics365/marketing/gdpr" title="Data protection and the GDPR">Microsoft Docs: Data protection and the GDPR</a> <a href="#ffn3">&#x21A9;&#xFE0E;</a></li>
+</ol></body>
+</html>
+

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="../style.css" />
+		<title>System Setup: Text Messaging Providers</title>
+	</head>
+<body>
+<h1>System Setup: Text Messaging Providers</h1>
+
+<blockquote>
+<h6>In this article</h6>
+
+<ul>
+	<li><a href="#how-does-text-messaging-work-in-dynamics-365" title="How does text messaging work in Dynamics 365?">How does text messaging work in Dynamics 365?</a></li>
+	<li><a href="#setup-text-messaging" title="Setup Text Messaging">Setup text messaging</a></li>
+</ul>
+</blockquote>
+
+<h2 id="how-does-text-messaging-work-in-dynamics-365">How does text messaging work in Dynamics 365 Marketing?</h2>
+
+<p>Microsoft Dynamics 365 Marketing offers a range of communication channels to engage with your customers, and one of them is text messaging. With this feature, you can send SMS messages to your customers directly from Dynamics 365 Marketing.</p>
+
+<p>To start using text messaging in Dynamics 365 Marketing, you need to have a valid SMS provider account and set it up in your Dynamics 365 Marketing instance. Once you have set up your SMS provider, you can create SMS message templates, configure opt-in and opt-out settings, and target specific customer segments.</p>
+
+<p>When you send an SMS message from Dynamics 365 Marketing, the system automatically tracks the delivery status and response rates of each message. This allows you to measure the effectiveness of your SMS campaigns and adjust your marketing strategies accordingly. Overall, text messaging in Dynamics 365 Marketing offers an effective way to reach your customers on their mobile devices and boost your marketing efforts.</p>
+
+<h3>What kind of messages can be sent?</h3>
+
+<p>There are two types of SMS messages that can be sent from Dynamics: Transactional and Commercial.</p>
+
+<ul>
+	<li><strong>Transactional</strong> messages are intended for notifications or status updates (such as appointment confirmations, links to account or statements, notification of a receipt of goods, etc.).</li>
+	<li><strong>Commercial:</strong> Unsolicited or solicited communications regarding products or services, for the purpose of guiding a contact through a marketing journey or for collecting marketing analytics.</li>
+</ul>
+
+<blockquote>
+<blockquote>
+<h6>Note</h6>
+
+<p>It is important to be mindful of these types of message designation when creating Text Messages for use in marketing journeys/campaigns. There may be certain laws that may need to be adhered to that govern when <em>Commercial</em> messages may be sent, while <em>Transactional</em> messages are far less restricted as long as they are used appropriately.</p>
+</blockquote>
+</blockquote>
+
+<h2 id="setup-text-messaging">Setup Text Messaging</h2>
+
+<p>While Microsoft is investing in enabling Azure Communication Services to send and receive text messages in Dynamics 365, this capability is currently in beta. In the future, this should provide a more turnkey way of handling the setup and billing for marketing text messages as a feature. However, Dynamics Marketing can also be configured with <em>Custom Providers</em> which allow you to integrate third-party providers like Twilio to enable these features.</p>
+
+<p>The process of setting up Twilio and connecting it to Dynamics 365 involves the following steps:</p>
+
+<ol>
+	<li>Create a new Twilio account and get your API keys.</li>
+	<li>Configure a new SMS Provider in Dynamics and walk through the wizard.</li>
+	<li>Enable reply messages in Dynamics.</li>
+	<li>Create keywords in Dynamics.</li>
+</ol>
+
+<h3>1. Setup Twilio</h3>
+
+<ol>
+	<li>Sign up for a Twilio account: Go to the <a href="https://www.twilio.com/try-twilio" title="Try Twilio">Twilio</a> website and sign up for a new account. You&#39;ll need to provide some basic information about yourself and your organization<sup><a id="ffn1" href="#fn1" class="footnote">1</a></sup>.</li>
+	<li>Verify your account: Once you&#39;ve signed up, you&#39;ll need to verify your account by clicking on the verification link that Twilio sends to your email address.</li>
+	<li>Get a Twilio phone number: If you&#39;ve just signed up for Twilio, you can request a trial phone number to use while getting everything else setup. You can do this by heading to your <a href="https://console.twilio.com/" title="Twilio Console">Twilio console</a> and clicking the <strong>Get a Trial Number</strong> button. Alternatively, may can <a href="https://console.twilio.com/us1/develop/phone-numbers/manage/search?frameUrl=%2Fconsole%2Fphone-numbers%2Fsearch%3Fx-target-region%3Dus1&amp;currentFrameUrl=%2Fconsole%2Fphone-numbers%2Fsearch%3FisoCountry%3DUS%26searchTerm%3D%26searchFilter%3Dleft%26searchType%3Dnumber%26x-target-region%3Dus1%26__override_layout__%3Dembed%26bifrost%3Dtrue" title="Twilio Console: Buy a number">buy</a> a Twilio number or <a href="https://console.twilio.com/us1/develop/phone-numbers/port-host/port-number?frameUrl=%2Fconsole%2Fphone-numbers%2Fporting-requests%2Fport%3Fx-target-region%3Dus1" title="Twilio Console: Port a number">port in</a> an existing phone number to the service.</li>
+	<li>Get your Twilio API credentials: In order to send text messages from Microsoft Dynamics 365 Marketing using Twilio, you&#39;ll need to obtain your Twilio API credentials. To do this, head to your Twilio console&#39;s <strong>Account Info</strong> section. Here you will see your &quot;Account SID&quot; and &quot;Auth Token&quot; values, which you will use to setup an <em>SMS Provider</em> in Dynamics 365 down below.</li>
+</ol>
+
+<blockquote>
+<blockquote>
+<h6>Note</h6>
+
+<p>If you buy or port a toll-free phone number in Twilio, you will not be able to send certain content (such as URLs and attachments) until your toll-free phone number has been verified<sup><a id="ffn2" href="#fn2" class="footnote">2</a></sup>.</p>
+</blockquote>
+</blockquote>
+
+<h3>2. Setup an SMS Provider</h3>
+
+<ol>
+	<li>In Dynamics Marketing, navigate to the Settings area, and then click on SMS Providers.</li>
+	<li>Click &quot;New&quot; to create launch the <strong>New SMS Provider</strong> wizard.</li>
+	<li>Choose &quot;Twilio&quot; and then click &quot;Next&quot;.</li>
+	<li><strong>Settings</strong>:
+
+		<ol>
+			<li>Enter the following details:
+
+				<ol>
+					<li>Name (whatever name you want for this provider)</li>
+					<li>Description</li>
+					<li>Account SID (which you can get from your Twilio dashboard)</li>
+					<li>Auth Token (which you can get from your Twilio dashboard)</li>
+				</ol></li>
+			<li>Copy the <strong>Incoming callback URL</strong> value and paste it into the <strong>Messaging Service</strong> section of your Twilio dashboard. This will enable you to receive text message responses from your contacts directly in Dynamics 365 Marketing.</li>
+			<li>Click &quot;Next&quot; to continue.</li>
+		</ol></li>
+	<li><strong>Phone Numbers</strong>:
+
+		<ol>
+			<li>Click &quot;Add&quot; to add a phone number.</li>
+			<li>Enter the following details:
+
+				<ol>
+					<li>Phone Number (which you can get from your Twilio dashboard)</li>
+					<li>Friendly Name (which you can get from your Twilio dashboard)</li>
+				</ol></li>
+			<li>Click &quot;Next&quot; to continue.</li>
+		</ol></li>
+	<li><strong>Test</strong>:
+
+		<ol>
+			<li>Click &quot;Test&quot; to test the connection to Twilio.</li>
+			<li>If the test is successful, click &quot;Finish&quot; to complete the wizard.</li>
+			<li>If the test fails, click &quot;Back&quot; to go back and check your settings.</li>
+		</ol></li>
+</ol>
+
+<h3>3. Enable reply messages</h3>
+
+<ol>
+	<li>Open the SMS Provider record you created in the previous steps.</li>
+	<li>Click the <strong>Settings</strong> tab.</li>
+	<li>Copy the &quot;Incoming callback URL&quot; value.</li>
+	<li>Log back into your <a href="https://console.twilio.com/" title="Twilio Console">Twilio console</a> and use the navigation panel on the left-hand side of the page, browse to <strong>Develop</strong> (the tab at the top) &gt; <strong>Phone Numbers</strong> &gt; <strong>Manage</strong> &gt; <strong>Active Numbers</strong>.</li>
+	<li>Your phone number(s) will be displayed in a grid. Click to open a phone number that has been also configured under a SMS Provider in Dynamics.</li>
+	<li>In the phone number&#39;s <strong>Configure</strong> tab, scroll down to the <strong>Messaging</strong> section and find the three fields under the label &quot;A MESSAGE COMES IN&quot;.</li>
+	<li>Replace the default webhook URL with the &quot;Incoming callback URL&quot; value that you copied in step 3.</li>
+	<li>Click &quot;Save&quot;.</li>
+</ol>
+
+<h3>4. Create keywords in Dynamics</h3>
+
+<p>SMS keywords may be required by messaging service providers (like Twilio) to prevent your messages from being classified as spam. For example, failing to include a &quot;STOP&quot; keyword in certain scenarios can cause the message to get caught in a service provider&#39;s spam filter and the message.</p>
+
+<p>To create a keyword:</p>
+
+<ol>
+	<li>In the Dynamics Marketing app, navigate to the Settings area, then click on SMS keywords.</li>
+	<li>Click the &quot;New keyword&quot; button.</li>
+	<li>In the pop-up window, enter a keyword (such as &quot;STOP&quot; without any spaces or special characters).</li>
+	<li>Click the &quot;Create&quot; button.</li>
+</ol>
+
+<p>Once keywords are created, they can be added to marketing text messages in the Text Message designer.</p>
+
+<ol id="footnotes">
+	<li id="fn1"><a href="https://www.twilio.com/docs/messaging/build-your-account" title="Twilio Docs: Build your account">Twilio Docs: Build your account</a> <a href="#ffn1">&#x21A9;&#xFE0E;</a></li>
+	<li id="fn2"><a href="https://support.twilio.com/hc/en-us/articles/5377174717595-Toll-Free-Message-Verification-for-US-Canada" title="Toll-Free Message Verification for US/Canada">Twilio Help Center: Toll-Free Message Verification for US/Canada</a>
+
+		<p>To verify a toll free number, download a copy of <a href="https://docs.google.com/spreadsheets/d/140Mg9Tnwdvha4UA5zGdGnLA-9CRuOTqtBEeQZ1JXWLg/edit#gid=0">this form</a>, fill it in, and then <a href="https://console.twilio.com/us1/support/submit-ticket" title="Twilio: Submit a Ticket">submit</a> the form to Twilio&#39;s verification team. The review process may take up to 2-3 weeks. <a href="#ffn2">&#8617;</a></p>
+	</li>
+</ol></body>
+</html>
+

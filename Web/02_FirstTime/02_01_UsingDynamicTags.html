@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="../style.css" />
+		<title>First Time: Using Dynamic Tags</title>
+	</head>
+<body>
+<h1>First Time: Using Dynamic Tags</h1>
+
+<blockquote>
+<h6>In this article</h6>
+
+<ul>
+	<li><a href="#what-are-dynamic-content-tags" title="What are Dynamic Content Tags?">What are Dynamic Content Tags?</a></li>
+	<li><a href="#where-are-dynamic-content-tags-used" title="Where are Dynamic Content Tags used?">Where are Dynamic Content Tags used?</a></li>
+	<li><a href="#using-the-dynamic-content-tags" title="Using the Dynamic Content Tags">Using the Dynamic Content Tags</a></li>
+</ul>
+</blockquote>
+
+<h2 id="what-are-dynamic-content-tags">What are Dynamic Tags?</h2>
+
+<p>In Microsoft Dynamics 365 Marketing, Dynamic Content tags are used to insert personalized content or execute specific logic within email templates. These tags are enclosed in double braces ({ and }) and can represent standard field values or advanced programming constructs. By incorporating Dynamic Content tags, marketers can create more relevant and engaging content that is tailored to each recipients&#39; specific details, preferences, and behaviors, which results in engagements and interactions which feel more targeted and individualized.</p>
+
+<p>The Dynamic Content system in Dynamics Marketing supports conditional statements, comparisons, and loops. When used, these allow marketing users to generate content and campaigns which can be highly dynamic.</p>
+
+<p>To use dynamic tags in Microsoft Dynamics 365 Marketing app, you must first create a template that contains the placeholders for dynamic content. You can then merge this dynamic content for the correct fields using the appropriate marketing list. The merged data replaces the placeholders and creates an email message for each recipient with personalized and relevant information. The use of dynamic tags can help to personalize communication with customers and build better relationships.</p>
+
+<p>To create a dynamic tag in the Microsoft Dynamics 365 Marketing app, follow these steps:</p>
+
+<ol>
+	<li>Select the Email messages tab in the Dynamics 365 Marketing app.
+
+		<ol start="2">
+			<li>Select the message to which you want to add dynamic content.</li>
+			<li>Click Content to edit the content of the selected message.</li>
+			<li>Choose the location where you want the dynamic content to appear and click the dynamic content placeholder button.</li>
+			<li>Select the type of content you want to place into the dynamic tag.</li>
+			<li>Insert the dynamic tag into the message content and save the message.</li>
+		</ol></li>
+</ol>
+
+<p>Remember to select the appropriate marketing list to merge with the dynamic content. This will ensure that the right data is included in the message for each recipient.</p>
+
+<h2 id="where-are-dynamic-content-tags-used">Where are Dynamic Tags used?</h2>
+
+<p>Dynamic Content tags are supported in the following areas of the Microsoft Dynamics 365 Marketing app:</p>
+
+<ul>
+	<li>Email messages
+
+		<ul>
+			<li>Landing pages</li>
+			<li>Web forms</li>
+			<li>Web pages</li>
+			<li>Web links</li>
+			<li>Web links in email messages</li>
+			<li>Web links in landing pages</li>
+			<li>Web links in web forms</li>
+			<li>Web links in web pages</li>
+		</ul></li>
+</ul>
+
+<h2 id="using-the-dynamic-content-tags">Using the Dynamic Tag wizard</h2>
+
+<p>At a very high level, create a dynamic tag in the Microsoft Dynamics 365 Marketing app basically involves the following steps:</p>
+
+<ol>
+	<li>Select the Email messages tab in the Dynamics 365 Marketing app.
+
+		<ol start="2">
+			<li>Select the message to which you want to add dynamic content.</li>
+			<li>Click Content to edit the content of the selected message.</li>
+			<li>Choose the location where you want the dynamic content to appear and click the dynamic content placeholder button.</li>
+			<li>Select the type of content you want to place into the dynamic tag.</li>
+			<li>Insert the dynamic tag into the message content and save the message.</li>
+		</ol></li>
+</ol>
+
+<p>However, to fully leverage the Dynamic Content system, you a little basic understanding of scripting and programming will be required. For example, <strong>advanced dynamic content tags</strong> might involve conditional statements, comparisons, and loops, which are programming concepts. The below sections will provide a brief overview of these concepts.</p>
+
+<h3>Conditional Statements and Comparisons</h3>
+
+<p>Conditional statements use &quot;if-then-else&quot; logic to display content based on whether expressions resolve to true or false. Use the following syntax for conditional statements:</p>
+
+<pre><code class="code-highlighted code-handlebars"><span class="syntax-all syntax-constant">{{#if</span> (&lt;<span class="syntax-all syntax-variable">operator</span>&gt; &lt;<span class="syntax-all syntax-variable">value1</span>&gt; &lt;<span class="syntax-all syntax-variable">value2</span>&gt;)<span class="syntax-all syntax-constant">}}</span>
+    Content displayed when the expression is true
+<span class="syntax-all syntax-constant">{{else </span><span class="syntax-all syntax-variable">if</span><span class="syntax-all syntax-constant"> (</span>&lt;operator&gt; &lt;value1&gt; &lt;value2&gt;)<span class="syntax-all syntax-constant">}}</span>
+    Content displayed when the first expression is false and the second one is true
+.
+.
+.
+<span class="syntax-all syntax-constant">{{else}}</span>
+    Content displayed when all expressions are false
+<span class="syntax-all syntax-constant">{{/if}}</span></code></pre>
+
+<p>Operators for conditional expressions include: eq (equal to), ne (not equal to), lt (less than), gt (greater than), lte (less than or equal to), and gte (greater than or equal to).</p>
+
+<h3>For-Each Loops</h3>
+
+<p>For-each loops allow you to iterate through a collection of records related to a specific current record. Use the following syntax for for-each loops:</p>
+
+<pre><code class="code-highlighted code-handlebars"><span class="syntax-all syntax-constant">{{#each</span> <span class="syntax-all syntax-variable">Entity.RelationshipName</span> <span class="syntax-all syntax-constant">}}</span>
+    ...
+    <span class="syntax-all syntax-constant">{{</span><span class="syntax-all syntax-variable">this.RelatedField1</span><span class="syntax-all syntax-constant">}}</span>
+    ...
+    <span class="syntax-all syntax-constant">{{</span><span class="syntax-all syntax-variable">this.RelatedField2</span><span class="syntax-all syntax-constant">}}</span>
+    ...
+<span class="syntax-all syntax-constant">{{/each}}</span></code></pre>
+
+<h3>Entering Advanced Dynamic Content</h3>
+
+<p>To enter advanced dynamic content in the designer, follow these tips:</p>
+
+<ul>
+	<li>Use custom-code elements for better visibility and reliability.</li>
+	<li>Remove extra spaces and carriage returns added by the designer that can break your code.</li>
+	<li>Ensure dynamic-content code is contained within a set of start and end tags or within an HTML comment.</li>
+	<li>Use the personalization feature to construct expressions that fetch values from your database.</li>
+	<li>Test your dynamic content thoroughly before sending it to your audience to ensure it works as expected.</li>
+</ul>
+
+</body>
+</html>
+

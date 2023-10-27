@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="../style.css" />
+		<title>First Time: Creating Marketing Segments</title>
+	</head>
+<body>
+<h1>First Time: Creating Marketing Segments</h1>
+
+<blockquote>
+<h6>In this article</h6>
+
+<ul>
+	<li><a href="#about-marketing-segments" title="About Marketing Segments">About Marketing Segments</a></li>
+	<li><a href="#create-marketing-segments" title="Create Marketing Segments">Create Marketing Segments</a></li>
+	<li><a href="#use-redirect-url-insights" title="Use Segment Insights">Use Segment Insights</a></li>
+</ul>
+</blockquote>
+
+<h2 id="about-marketing-segments">About Marketing Segments</h2>
+
+<p>Marketing segments in Dynamics 365 Marketing are a way to define groups of customers based on specific criteria. Segments are essential for targeting and personalizing marketing initiatives such as email campaigns and customer journeys. There are two types of segments in Dynamics 365 Marketing: dynamic segments and static segments.</p>
+
+<ul>
+	<li><strong>Dynamic Segments:</strong> Dynamic segments are defined by a set of rules and conditions and are constantly updated based on the information in your database. They automatically include customers who meet the defined criteria. For example, you can create a dynamic segment for &quot;construction customers who have rented front loaders from us in the past 6 months&quot; or &quot;contacts who visited our booth at last month&#39;s conference&quot;. Dynamic segments are ideal for targeting specific customer groups with tailored marketing messages.</li>
+	<li><strong>Static Segments:</strong> Static segments are manually populated by adding contacts explicitly, one at a time. Unlike dynamic segments, static segments do not update automatically based on database information. Static segments can be useful when you want to create a fixed group of contacts for a specific purpose.</li>
+</ul>
+
+<p>Marketing segments can consist of blocks of queries that are based on profiles, interactions, or other segments. Query blocks are used to define the criteria for a segment. There are two types of query blocks in Dynamics 365 Marketing:</p>
+
+<ul>
+	<li><strong>Profile Blocks:</strong> Profile blocks query the profile records stored in the marketing-insights service. These profile records you work with in the Dynamics 365 UI, such as contacts, accounts, leads, and others. The profile records are synchronized between your Dynamics 365 organizational database and the marketing-insights service. By querying the profile records, you can create segments based on customer attributes and characteristics, such as demographics or firmographics. Profile blocks are ideal for targeting specific groups of customers based on their profile information, such as age, location, or industry affiliation.</li>
+	<li><strong>Behavioral Blocks:</strong> Behavioral blocks query the interaction records stored in the marketing-insights service. These interaction records are automatically generated and capture customer interactions, such as opening an email, clicking an email link, submitting a form, or registering for an event. Behavioral blocks enable you to target customers who have taken specific actions or engaged with your marketing content. For example, you can create a segment of customers who have clicked on a particular product link in an email, or who have visited a particular web page.</li>
+</ul>
+
+<blockquote>
+<blockquote>
+<h6>Note</h6>
+
+<p>It&#39;s important to note that profile blocks query the synced profile records, which include entities like contacts, accounts, and leads. On the other hand, behavioral blocks query the interaction records generated in response to customer interactions, but these records are not synced to the Dynamics 365 organizational database.</p>
+</blockquote>
+</blockquote>
+
+<p>&lt;br&gt;</p>
+
+<p>You can combine these blocks of queries based on profiles, interactions, or other segments. By utilizing both profile and behavioral blocks, you can create targeted segments that consider both customer attributes and engagement behavior. These segments will enable you to deliver personalized and tailored marketing messages to specific groups of customers, optimizing your marketing efforts as a John Deere dealership marketing admin.</p>
+
+<h2 id="create-marketing-segments">Create Marketing Segments</h2>
+
+<p>In this section, you will learn how to create marketing segments in Dynamics 365 Marketing. You will create a dynamic segment based on profile information and a static segment based on a list of contacts.</p>
+
+<h3>Create a Dynamic Segment</h3>
+
+<p>Dynamic marketing segments allow you to group contacts based on specific criteria. Dynamic segments automatically update their membership as contacts meet or no longer meet the set criteria. Follow the instructions below to create your first dynamic segment.</p>
+
+<h4>Step 1: Create a New Dynamic Segment</h4>
+
+<ol>
+	<li>In <strong>Outbound marketing</strong>, navigate to <strong>Segments</strong> under the &quot;Customers&quot; section.</li>
+	<li>Click on &quot;New&quot; to start creating a new segment.</li>
+	<li>Choose &quot;Dynamic segment&quot; from the options. This allows you to create a segment based on logical expressions and queries, which will automatically update as contacts meet the criteria.</li>
+</ol>
+
+<h4>Step 2: Choose a Segment Template (Optional)</h4>
+
+<ol>
+	<li>A &quot;Segment template&quot; dialog box will appear, showing a list of available templates. These templates provide predefined or partially defined queries designed for specific purposes.</li>
+	<li>Select a template to read more about it in the information panel. You can use the &quot;Filter&quot; and &quot;Search&quot; features to find the desired template.</li>
+	<li>Click &quot;Select&quot; to load a template, or click &quot;Cancel&quot; to build a new segment from scratch.</li>
+</ol>
+
+<h4>Step 3: Design Your Dynamic Segment</h4>
+
+<ol>
+	<li>If you selected a template, it will load, and you can skip this step. If you chose &quot;Cancel&quot; in the previous step, a blank designer will open.</li>
+	<li>Begin by selecting a query block (e.g., profile block, interaction block, or another segment). You can add other blocks and choose the relationship between the blocks (e.g., &quot;or,&quot; &quot;and also,&quot; &quot;but not&quot;).</li>
+	<li>Name your segment at the top of the segmentation canvas.</li>
+</ol>
+
+<blockquote>
+<blockquote>
+<h6>Note</h6>
+
+<p>As you work with segments, you may find that you want to create a segment based on some kind of interaction your customers have with your marketing content. For example, you may want to create a segment of customers who have clicked on a particular link in an email. You can easily do this by choosing a behavioral block when setting up your marketing segment, and then selecting the specific interaction you want to track.</p>
+</blockquote>
+</blockquote>
+
+<p>&lt;br&gt;</p>
+
+<h4>Step 4: Save Your Segment</h4>
+
+<ol>
+	<li>Click &quot;Save&quot; on the toolbar to save your newly created segment.</li>
+</ol>
+
+<h4>Step 5: Define Your Segment Membership Criteria</h4>
+
+<ol>
+	<li>Use the tools provided in the designer to establish your segment membership criteria. For example, you may want to target contacts living in a specific city or those who have shown interest in a particular product.</li>
+</ol>
+
+<h4>Step 6: Go Live with Your Segment</h4>
+
+<ol>
+	<li>Once you have designed your segment, click &quot;Go live&quot; on the toolbar. This will start running the segment, find all its members, and make it available for use in customer journeys.</li>
+	<li>After going live, you can check the &quot;Members&quot; tab to see which contacts are part of the segment.</li>
+</ol>
+
+<h3>Create a Static Segment</h3>
+
+<p>A static marketing segment is a fixed list of contacts that you manually select, rather than a dynamic segment that automatically updates based on certain criteria. Follow the steps below to create your first static segment:</p>
+
+<h4>Step 1: Create a new static segment</h4>
+
+<ol>
+	<li>In <strong>Outbound marketing</strong>, navigate to <strong>Segments</strong> under the &quot;Customers&quot; section.</li>
+	<li>Click on &quot;New&quot; to create a new segment.</li>
+	<li>Choose &quot;Static segment&quot; from the options presented.</li>
+</ol>
+
+<h4>Step 2: Set up basic segment information</h4>
+
+<ol>
+	<li>A quick create panel will appear, prompting you to provide a name for your new static segment.</li>
+	<li>You can also add an optional description to help you remember the purpose of this segment.</li>
+	<li>Select the appropriate time zone for your segment.</li>
+	<li>Click on &quot;Save&quot; at the bottom of the quick create panel to save your new static segment.</li>
+</ol>
+
+<h4>Step 4: Add members to the static segment</h4>
+
+<ol>
+	<li>With your static segment created, you can now add contacts to it.</li>
+	<li>Open the record (if it needs to be opened), then go to the &quot;General&quot; tab in the static segment designer.</li>
+	<li>Click the &quot;Add&quot; button to search for and select individual contacts to include in your segment.</li>
+	<li>Alternatively, use the &quot;Add by Query&quot; button to create a query that filters your contacts based on certain criteria. This will display a list of contacts that match your query.</li>
+	<li>Select the contacts you want to add to your segment from the query results, and click &quot;Add selected.&quot; If you want to include all contacts from the query, click &quot;Add all.&quot;</li>
+</ol>
+
+<h4>Step 5: Remove members from the static segment (optional)</h4>
+
+<ol>
+	<li>If needed, you can also remove contacts from your static segment.</li>
+	<li>Click the &quot;Remove by Query&quot; button and create a query to filter the contacts you want to remove.</li>
+	<li>From the list of contacts generated by the query, select the contacts you want to remove, and click &quot;Remove selected.&quot; To remove all contacts from the query, click &quot;Remove all.&quot;</li>
+</ol>
+
+<h4>Step 6: Go live with your segment</h4>
+
+<ol>
+	<li>Once you&#39;ve added all the desired contacts to your static segment, click &quot;Go live&quot; in the toolbar.</li>
+	<li>This will make your segment available for use in customer journeys.</li>
+</ol>
+
+<h2 id="use-redirect-url-insights">Use Segment Insights</h2>
+
+<p>Marketing Segment Insights provide an analytical view of how the membership of a specific segment changes over time. Segments are groups of contacts that share common characteristics or behaviors, which can be used for targeted marketing campaigns. With Marketing Segment Insights, you can track and measure the effectiveness of your marketing efforts by understanding how your audience responds to your initiatives.</p>
+
+<p>Marketing Segment Insights gathers data on your segment membership and presents it in an easy-to-understand format within Dynamics 365 Marketing. This allows you to monitor membership changes, identify trends, and make informed decisions for your marketing campaigns.</p>
+
+<p>To see your Segment Insights, follow these steps:</p>
+
+<ol>
+	<li>In <strong>Outbound marketing</strong>, click on <strong>Segments</strong> in the &quot;Customers&quot; section of the navigation pane. In <strong>Real-time marketing</strong>, click on <strong>Segments</strong> in the &quot;Audience&quot; section.</li>
+	<li>Choose the segment you want to analyze by clicking on its name in the list of available segments.</li>
+	<li>Once you&#39;ve opened the segment record, click on the &quot;Insights&quot; tab to access the Marketing Segment Insights.</li>
+	<li>You will now see a graphical representation of how the membership of your selected segment has changed over time. Use this information to understand trends and the impact of your marketing initiatives on the segment.</li>
+	<li>To analyze the data more thoroughly, use the date range filter at the top of the Insights tab. You can set the &quot;From&quot; and &quot;To&quot; dates to focus on a specific time frame.</li>
+	<li>Explore different aspects of your segment insights by hovering your mouse pointer near the value you&#39;re interested in. An info icon will appear, and when you hover on this icon, a tooltip with a description of that value will be displayed.</li>
+</ol>
+
+<p>By following these steps, you can leverage Marketing Segment Insights to better understand your audience and make data-driven decisions for your segment-driven marketing campaigns and journeys.</p>
+
+</body>
+</html>
+
