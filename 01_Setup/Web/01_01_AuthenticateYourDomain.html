@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="../../style.css" />
+		<title>System Setup: Authenticate Your Domain</title>
+	</head>
+<body>
+<h1>System Setup: Authenticate Your Domain</h1>
+
+<blockquote>
+<h6>In this article</h6>
+
+<ul>
+	<li><a href="#what-is-an-authenticated-domain" title="What is an authenticated domain?">What is an authenticated domain?</a></li>
+	<li><a href="#setup" title="Setup">Setup</a></li>
+</ul>
+</blockquote>
+
+<h2 id="what-is-an-authenticated-domain">What is an Authenticated Domain?</h2>
+
+<p>An authenticated domain in Microsoft Dynamics 365 Marketing refers to the process of verifying that you own a particular domain name and giving permission to use it for sending emails. This verification process ensures that emails sent from your Dynamics 365 Marketing account are trusted by the recipient&#39;s email service provider and not marked as spam.</p>
+
+<p>To authenticate a domain in Dynamics 365 Marketing, you need to create a domain verification record that confirms you own the domain. This record is added to your domain&#39;s DNS settings, and once verified, it provides a digital signature that helps to identify your emails as legitimate.</p>
+
+<p>By authenticating your domain, you can improve the deliverability and reliability of your marketing emails, which is essential for any business looking to engage with its customers and drive conversions. Additionally, using an authenticated domain helps to protect your brand&#39;s reputation and maintain compliance with email regulations.</p>
+
+<h2 id="setup">Setup</h2>
+
+<ol>
+	<li>Go to the Settings area of the Marketing app.</li>
+	<li>Click on &quot;Domains&quot; under the &quot;Email Marketing&quot; heading.</li>
+	<li>Click <strong>New</strong>.</li>
+		<ol>
+			<li><img src="../../Images/01_01_01_Domains.png" alt="Click 'New'"></li>
+		</ol>
+	<li>A wizard will be displayed which will guide you through these steps:
+
+		<ol>
+			<li>Provide your website&#39;s domain name. (Also ensure that the options &quot;Enable external form hosting for this domain&quot; and &quot;Enable email sending for this domain&quot; are checked.)</li>
+			<li>Create a <strong>TXT</strong> record to verify domain ownership.</li>
+			<li>Create <strong>CNAME</strong> records to enable email sending for the Marketing app.</li>
+			<li>Create a final <strong>CNAME</strong> record to enable Envelope-From (i.e Return-Path) domain alignment<sup><a id="ffn1" href="#fn1" class="footnote">1</a></sup> and SPF protection functionality.</li>
+			<li>Once the DNS records are created, return to the wizard and verify the domain.</li>
+		</ol></li>
+	<li>Once the wizard is completed, you will be returned to the form for the new Active Domain record you created.
+
+		<ol>
+			<li>If you want to use this domain for sending emails (or if you unchecked these options in the wizard), ensure that the &quot;Email Sending&quot; toggle is set to &quot;Enabled&quot;.</li>
+			<li>If you want to use this domain for hosting external forms, ensure that the &quot;External Forms&quot; toggle is set to &quot;Enabled&quot;.</li>
+		</ol></li>
+</ol>
+
+<blockquote>
+<blockquote>
+<h6>Note</h6>
+
+<p>The process of adding DNS records may vary depending on your domain registrar, so please refer to their documentation<sup><a id="ffn2" href="#fn2" class="footnote">2</a></sup> for specific instructions. Additionally, the process may take some time for the DNS changes to propagate, so it&#39;s best to wait for a few hours before verifying your domain.</p>
+</blockquote>
+</blockquote>
+
+<ol id="footnotes">
+	<li id="fn1"><a href="https://certified-senders.org/wp-content/uploads/2018/09/Domain_Alignment.pdf" title="Domain Alignment.pdf">Certified-Senders.org: Domain Alignment for Email Authentication (pdf)</a> <a href="#ffn1">&#x21A9;&#xFE0E;</a></li>
+	<li id="fn2">See document for <a href="https://www.namecheap.com/support/knowledgebase/article.aspx/317/2237/how-do-i-add-txtspfdkimdmarc-records-for-my-domain/" title="How do I add TXT/SPF/DKIM/DMARC records to my domain?">NameCheap</a>, <a href="https://www.domain.com/help/article/dns-management-dns-records-explained" title="DNS Records Explained - Domain Name System Management">Domain.com</a>, and <a href="https://www.godaddy.com/help/add-a-cname-record-19236" title="Add a CNAME record">GoDaddy</a>.
+
+		<p>Visit your domain registrar&#39;s website or search the internet if your provider is not listed above. <a href="#ffn2">&#8617;</a></p>
+	</li>
+</ol></body>
+</html>
+

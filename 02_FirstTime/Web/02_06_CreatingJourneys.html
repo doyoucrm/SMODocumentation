@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="../../style.css" />
+		<title>First Time: Creating Marketing Journeys</title>
+	</head>
+<body>
+<h1>First Time: Creating Marketing Journeys</h1>
+
+<blockquote>
+<h6>In this article</h6>
+
+<ul>
+	<li><a href="#about-marketing-journeys" title="About Marketing Journeys">About Marketing Journeys</a></li>
+	<li><a href="#create-marketing-journeys" title="Create Marketing Journeys">Create Marketing Journeys</a></li>
+	<li><a href="#use-journey-insights" title="Use Journey Insights">Use Journey Insights</a></li>
+</ul>
+</blockquote>
+
+<h2 id="about-marketing-journeys">About Marketing Journeys</h2>
+
+<p>Marketing Journeys are automated, guided customer experiences that you can create using Dynamics 365 Customer Insights. These journeys can be designed to react to customer actions in real-time or target specific customer segments. They help you engage with your customers through personalized messages and offers, driving customer loyalty and increasing sales.</p>
+
+<p>For example, you can create a Marketing Journey that sends an email to new customers, offering them a special discount on John Deere equipment. If the customer clicks on the offer, the journey can automatically send a follow-up email with more details or a reminder before the offer expires. These journeys can be as simple or complex as needed, allowing you to create tailored experiences for your customers.</p>
+
+<h2 id="create-marketing-journeys">Create Marketing Journeys</h2>
+
+<p>Follow these step-by-step instructions to create a Marketing Journey in Dynamics 365 Customer Insights.</p>
+
+<h3>Before you get started...</h3>
+
+<p>Before you can create and use Marketing Journeys, there are a few key components that must be configured within Dynamics 365 Customer Insights:</p>
+
+<ol>
+	<li><strong>Segments:</strong> Segments are groups of customers that share similar characteristics or behaviors. You&#39;ll need to create segments to target specific audiences in your Marketing Journeys. For example, you might create segments for new customers, customers who have purchased specific equipment, or customers who have shown interest in a particular service.</li>
+	<li><strong>Content:</strong> Content includes the email messages, text messages, and other marketing materials that you&#39;ll use in your Marketing Journeys. You&#39;ll need to create and design the content that will be sent to your customers during each step of the journey. Make sure your content is engaging and relevant to your audience.</li>
+	<li><strong>Triggers:</strong> Triggers are the events or actions that initiate a specific step in a Marketing Journey. For example, a trigger might be a customer clicking on a link in an email or signing up for a newsletter. There are many out-of-the-box triggers that you can use right away in your Marketing Journeys, or you can create custom triggers to fit your needs.</li>
+</ol>
+
+<p>Once these components are configured, you&#39;ll be able to create and launch your Marketing Journeys.</p>
+
+<h3>Create a Real-Time Journey</h3>
+
+<p>This step-by-step guide is designed to help a John Deere dealer marketing user or admin to create a real-time marketing journey using Dynamics 365 Customer Insights. The goal for this guide is to send out follow-up emails to a contact after they clicked a link in a marketing email.</p>
+
+<h4>Step 1: Create a new trigger-based customer journey</h4>
+
+<ol>
+	<li>Navigate to <strong>Real-time marketing</strong> and then click <strong>Journeys</strong> under the &quot;Engagement&quot; section.</li>
+	<li>Click the &quot;New&quot; button on the top left-hand corner.</li>
+	<li>Name your new journey &quot;Email Link Clicked Journey&quot;.</li>
+	<li>Ensure &quot;Trigger-based Journey&quot; is selected.</li>
+	<li>Click in the &quot;Choose a trigger&quot; field and select &quot;Email Link Clicked&quot;.</li>
+	<li>Then click &quot;Create&quot;.</li>
+</ol>
+
+<h4>Step 2: Add steps to your journey</h4>
+
+<p>Now that you&#39;ve selected a trigger and created your new journey, you can begin adding steps. Use the plus sign (+) on the journey canvas to add individual steps such as sending an email, adding a condition, or waiting for a specific period.</p>
+
+<p>For our example journey, we&#39;ll add the following steps:</p>
+
+<ol>
+	<li>Send an email: Select an email template promoting a John Deere mower and configure it with personalized content. Make sure to specify the attribute containing the customer&#39;s email address in the &quot;Send to&quot; field.</li>
+	<li>Add a condition: Check if the customer clicked the link in the email. If they did, proceed to the next step; otherwise, end the journey for that customer.</li>
+	<li>Wait: Add a waiting period, for example, 3 days, before sending a follow-up email.</li>
+	<li>Send a follow-up email: Send a follow-up email reminding customers of the promotion or offering additional information.</li>
+</ol>
+
+<h4>Step 3: Test your journey</h4>
+
+<p>Before making your journey live, test it with a small group of customers to ensure everything is working as expected.</p>
+
+<h4>Step 4: Publish and monitor your journey</h4>
+
+<p>Once you&#39;re satisfied with the setup, click the &quot;Publish&quot; button in the top right-hand corner. Your journey is now live and will be triggered by the specified event.</p>
+
+<p>Check your journey&#39;s analytics page regularly to understand its performance and identify areas for improvement.</p>
+
+<h2 id="use-journey-insights">Use Journeys Insights</h2>
+
+<p>Marketing Journey Insights are an integral part of Dynamics 365 Customer Insights that provide valuable information about your customer journeys, helping you identify how customers react to your marketing initiatives. You can analyze contact flow through the journey, see how many messages were delivered, and identify reasons for incomplete journeys or blocked emails. With this information, you can optimize your marketing strategies and improve customer engagement.</p>
+
+<p>Follow these step-by-step instructions to access and use Marketing Journey Insights in Dynamics 365 Customer Insights:</p>
+
+<ol>
+	<li>In <strong>Real-time marketing</strong>, click on <strong>Journeys</strong> under the &quot;Engagement&quot; section.</li>
+	<li>Select a customer journey from the list. Insights are only available for customer journeys that are (or have been) live.</li>
+	<li>View the Designer tab for a read-only version of your journey pipeline. Above each tile, you&#39;ll see an overview of how contacts flowed through that tile. Inspect these values for a quick understanding of how your contacts interacted with each part of the journey.</li>
+	<li>For more detailed information about a specific tile, select it from the pipeline and look at the Data panel. You&#39;ll see information such as the number of contacts processed, stopped, or in progress.</li>
+	<li>To view more detailed insights, switch to the Insights tab. Here, you&#39;ll find the Overview and Incomplete journeys sections.
+
+		<ul>
+			<li>Overview: This section shows basic email results and information about how many contacts interacted with the emails and marketing pages used by the journey.</li>
+			<li>Incomplete journeys: This section helps you identify reasons why contacts might fail to complete the journey, and lists each contact affected by these issues. You&#39;ll see two categories: Stopped contacts and Blocked emails. Stopped contacts are those who stopped in the middle of the journey due to various reasons, such as joining a suppression segment or lowering their consent level. Blocked emails are messages that the system didn&#39;t attempt to send, usually because of contact preferences or technical problems with the message.</li>
+		</ul></li>
+	<li>To analyze stopped contacts or blocked emails, select a reason in the left column of the table, and you&#39;ll see a list of affected contacts in the right column.</li>
+</ol>
+
+<p>By using Marketing Journey Insights, you&#39;ll be better equipped to understand and optimize your marketing efforts, leading to improved customer engagement and better results for your John Deere dealership.</p>
+
+</body>
+</html>

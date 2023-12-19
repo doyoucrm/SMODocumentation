@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="../../style.css" />
+		<title>System Setup: Default Settings (for Email Marketing)</title>
+	</head>
+<body>
+<h1>System Setup: Default Settings (for Email Marketing)</h1>
+
+<blockquote>
+<h6>In this article</h6>
+
+<ul>
+	<li><a href="#locate-the-email-default-settings-record" title="Locate the Email Default Settings record">Locate the Email Default Settings record</a></li>
+	<li><a href="#understanding-the-email-default-settings-record" title="Understanding the Email Default Settings record">Understanding the Email Default Settings record</a></li>
+	<li><a href="#quickstart-steps" title="Quickstart Steps">Quickstart steps</a></li>
+</ul>
+</blockquote>
+
+<p>Right out of the box, a number of settings will need to be set or updated in order to start getting the most out of Dynamics Marketing. This guide will walk you through the Default Settings for email marketing in the Marketing app and how to adjust them for your dealership.</p>
+
+<h2 id="locate-the-email-default-settings-record">Locate the Default Settings record</h2>
+
+<ol>
+	<li>Navigate to the Settings area of the Marketing app.</li>
+	<li>Click on &quot;Default settings&quot; under the &quot;Email Marketing&quot; heading. A records list will be displayed. 
+
+		<ul>
+			<li>If the Marketing app has <strong>not</strong> been configured before, this list will be empty. If this is the case, clicking the &quot;New&quot; button will create a new default settings record for the app.</li>
+			<li>If the list is <strong>not empty</strong>, it will likely only contain one record. If so, open it. If there are multiple records, open them one at a time until you find the record where the &quot;Default&quot; value equals &quot;Yes&quot;.
+		</ul></li>
+</ol>
+
+<h2 id="understanding-the-email-default-settings-record">Understanding the Default Settings record</h2>
+
+<p>The following section will guide you through the types of settings contained in the Default Settings record<sup><a id="ffn1" href="#fn1" class="footnote">1</a></sup>.</p>
+
+<p>For a quick guide on which settings need to be setup to make use of the app&#39;s email marketing capabilities, jump down to the section <a href="#quickstart-steps" title="Quickstart Steps">Quickstart Steps</a>.</p>
+
+<figure><img alt="Default Record" src="../../Images/01_02_01_DefaultRecord.png"/></figure></li>
+
+<h3>Default Sending Domain</h3>
+
+<p>The default sending domain (located on the &quot;Marketing email&quot; tab) is a lookup to an authenticated domain record.</p>
+
+<blockquote>
+<blockquote>
+<h6>Note</h6>
+
+<p>The topic of authenticated domains and how to set them up is covered in more detail in <a href="/01_01_AuthenticatedDomain.html" title="System Setup: Authenticate Your Domain">System Setup: Authenticate Your Domain</a>.</p>
+</blockquote>
+</blockquote>
+
+<p>The system provides you with a Domain record that is already authenticated. However, this default domain is tied directly to the Dynamics Marketing services and is not suitable for production use. If you have already created a Domain of your own and have verified its ownership, edit the &quot;Default sending domain&quot; value by clicking the search button (that appears when you hover your mouse over the field) and then choosing the Domain record you created.</p>
+
+<h3>Default From Email and Default From Name</h3>
+
+<p>These two fields are used to configure how the &quot;From&quot; information should look to email recipients when they receive marketing emails. The default sender is a hosted account that is baked into the Marketing app&#39;s services, and will not reflect your company information or brand in any way. The &quot;Default From Email&quot; and &quot;Default From Name&quot; values masks this information.</p>
+
+<p>Optimally, your &quot;Default From Email&quot; value should have a domain name that matches one of your <a href="/01_01_AuthenticatedDomain.html" title="Authenticate Your Domain">authenticated domains</a>.</p>
+
+<p>For example, if you setup an authenticated domain for the URL <code>https://www.bestdealerever.com</code> then your &quot;Default From Email&quot; might be set to <code>marketing@bestdealerever.com</code>.</p>
+
+<h3>Default Time Zone</h3>
+
+<p>The option to set your time zone is located on the &quot;Customer Journey&quot; tab. Clicking into the &quot;Default time zone&quot; field will allow you to select an option from a list global time zones.</p>
+
+<p>This is setting is used specifically by customer journeys (i.e., marketing automation) for timing when emails should be sent out or on automated timers for triggering steps.</p>
+
+<h3>Bypass Email Deduplication</h3>
+
+<p>Click on the &quot;Bypass email deduplication&quot; tab to view this setting. This value is set by default to &quot;No&quot;.</p>
+
+<p>When this value is set to &quot;No&quot;, the Marketing app will do its best to try and prevent contacts from receiving the same marketing email messages twice. For example, if a contact has 2 different email addresses in Dynamics, and both email addresses were somehow pulled into an email campaign, the system would likely catch this and only send the marketing email once to the contact.</p>
+
+<p>This involves a bit of business intelligence that looks at many other vectors besides just the recipient&#39;s email address. As such, it might not catch duplicates 100% of the time, but it is still extremely effective.</p>
+
+<p>Preventing duplicates is generally the preferred behavior, but if you are having experience an issue where multiple contacts are reporting that they are not receiving an automated marketing email, you can toggle this value to &quot;Yes&quot; to bypass email deduplication and see if this corrects the issue.</p>
+
+<h2 id="quickstart-steps">Quickstart Steps</h2>
+
+<p><strong>Important!</strong> These other steps should be completed before making changes to your Default Settings record:</p>
+
+<ul>
+	<li><a href="/01_01_AuthenticatedDomain.html" title="System Setup: Authenticate Your Domain">Authenticate at least one custom domain</a></li>
+</ul>
+
+<h3>1. Locate or create a new Default Settings record</h3>
+
+<ol>
+	<li>Navigate to the Settings area of the Marketing app.</li>
+	<li>Click on &quot;Default Settings&quot; in the left-hand navigation (located under the &quot;Email marketing&quot; header).</li>
+	<li>If the records list is empty, click &quot;New&quot; to create a new record. When the form is displayed, give your new Default Settings record a name. (Choose any name you like, as it won&#39;t affect the Marketing app&#39;s functionality.)</li>
+	<li>If the record&#39;s list is <strong>not</strong> empty, open records until you find the one where the &quot;Default&quot; value is &quot;Yes&quot;.</li>
+</ol>
+
+<h3>3. Update the Default Sending Domain</h3>
+
+<ol>
+	<li>Complete the steps required to <a href="/01_01_AuthenticatedDomain.html" title="Authenticate Your Domain">authenticate your domain</a>.</li>
+	<li>Update the &quot;Default sending domain&quot; value so that it points to your authenticated domain.</li>
+</ol>
+
+<h3>2. Update the Default Time Zone</h3>
+
+<ol>
+	<li>Navigate to the &quot;Customer Journey&quot; tab.</li>
+	<li>Click into the &quot;Default time zone&quot; field and select your time zone from the list.</li>
+</ol>
+
+<ol id="footnotes">
+	<li id="fn1"><a href="https://learn.microsoft.com/en-us/dynamics365/customer-insights/journeys/domain-authentication" title="Microsoft Docs: Domain Authentication in Customer Insights - Journeys">Microsoft Docs: Domain Authentication in Customer Insights - Journeys</a> <a href="#ffn1">&#x21A9;&#xFE0E;</a></li>
+</ol></body>
+</html>
+
